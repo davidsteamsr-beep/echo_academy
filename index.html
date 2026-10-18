@@ -1,20 +1,871 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050505"><title>ECHO Academy — кабинет</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>ECHO.Academy</title>
+<link rel="icon" href="assets/logo-512.png">
 <style>
-:root{--ink:#050505;--graphite:rgba(24,25,27,.64);--silver:#c0c0c0;--paper:#fff;--mist:#8d8d8d;--line:rgba(255,255,255,.12);--sans:'Manrope',system-ui,sans-serif;--display:'Unbounded',system-ui,sans-serif}*{box-sizing:border-box}html{background:#000;color:#fff;scroll-behavior:smooth}body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(900px 520px at 100% 0%,#1a1a1a 0%,#000 58%);font-family:var(--sans);font-size:14px}button,input{font:inherit}button{cursor:pointer;color:inherit}button:disabled{cursor:not-allowed;opacity:.4}button:focus-visible,input:focus-visible{outline:1px solid #ddd;outline-offset:3px}::selection{background:#c0c0c0;color:#000}.scene{position:fixed;inset:0;z-index:0;pointer-events:none}.scene canvas{width:100%;height:100%;display:block}.scrim{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.18) 20%,rgba(0,0,0,.78) 46%,#000 68%)}.app{position:relative;z-index:2;width:min(100%,600px);padding:22px 16px 64px;margin:0 auto}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-family:var(--display);font-size:12px;letter-spacing:.22em}.brand-sub{font-size:11px;letter-spacing:.22em;color:var(--mist);margin-top:5px}.iconbtn,.chip,.btn,.tab,.personbtn,.typebtn,.payout-person{border:1px solid var(--line);background:rgba(25,25,27,.48);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);transition:background .2s,border-color .2s,transform .2s}.iconbtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;position:relative}.iconbtn svg{width:17px;height:17px}.dot{position:absolute;right:9px;top:9px;width:6px;height:6px;background:#fff;border-radius:50%}.people-switch{display:flex;gap:8px;overflow-x:auto;padding:3px 0 5px;scrollbar-width:none}.people-switch::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;border-radius:99px;min-height:42px;padding:0 16px;color:#c0c0c0;white-space:nowrap}.chip.active,.btn.primary,.tab.active,.typebtn.active,.payout-person.active{background:#fff;color:#050505;border-color:#fff;font-weight:600}.noticebox{margin-top:12px;max-height:260px;overflow:auto;padding:10px;border:1px solid var(--line);border-radius:24px;background:rgba(25,25,27,.72);backdrop-filter:blur(25px)}.notice{padding:10px}.notice p{margin:0}.notice .muted{margin-top:5px}.name{font-family:var(--display);font-size:24px;line-height:1.3;margin:27px 0 6px;overflow-wrap:anywhere}.muted{color:var(--mist)}.silver{color:var(--silver)}.balance{font-family:var(--display);font-size:clamp(34px,8vw,48px);line-height:1.2;letter-spacing:-.045em;margin-top:24px;font-variant-numeric:tabular-nums}.balance-label{color:var(--silver);margin-top:8px}.stack{display:flex;flex-direction:column;gap:13px;margin-top:25px}.card{border:1px solid rgba(255,255,255,.11);border-radius:27px;background:rgba(24,25,27,.64);padding:20px;backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}h2{font-family:var(--display);font-weight:400;font-size:17px;line-height:1.5;margin:0}p{line-height:1.55}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.row{display:flex;align-items:center;gap:13px}.between{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.btn{min-height:44px;border-radius:99px;padding:0 16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:13px}.btn.primary{background:#fff;color:#050505;border-color:#fff}.btn.ghost{background:transparent}.btn.full{width:100%;margin-top:16px}.btn svg{width:16px;height:16px}.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{flex:0 0 auto;border-radius:99px;padding:6px 10px;border:1px solid rgba(255,255,255,.16);color:var(--silver);font-size:11px}.pill.solid{background:#fff;color:#000;border-color:#fff}.small{font-size:12px}.tiny{font-size:11px}.eyebrow{font-size:12px;color:var(--silver);display:flex;align-items:center;gap:8px}.linktext{font-size:13px;overflow-wrap:anywhere;line-height:1.6;margin-top:13px}.ring{width:112px;height:112px;flex:0 0 112px}.ring text{font-family:var(--display)}.chart{height:155px;width:100%;margin-top:12px}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.metric-label{font-size:11px;color:var(--mist)}.metric-value{font-family:var(--display);font-size:17px;margin-top:6px;overflow-wrap:anywhere}.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.tab,.typebtn{min-height:44px;border-radius:99px;padding:0 12px;font-size:12px;color:var(--silver)}.lead-list{display:flex;flex-direction:column;gap:12px}.lead-meta{font-size:11px;color:var(--mist);line-height:1.6;margin-top:12px;overflow-wrap:anywhere}.field{display:block;margin-top:15px}.field span{display:block;color:var(--mist);font-size:11px;margin-bottom:7px}.field input{height:48px;width:100%;border-radius:18px;border:1px solid var(--line);background:rgba(0,0,0,.4);padding:0 15px;color:#fff;outline:none}.field input:focus{border-color:#c0c0c0}.quick-picks{display:flex;gap:7px;overflow:auto;margin-top:8px;padding-bottom:3px;scrollbar-width:none}.personbtn{white-space:nowrap;flex:0 0 auto;min-height:40px;border-radius:99px;padding:0 12px;font-size:11px;color:var(--silver)}.type-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px}.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.cut-grid dt{font-size:12px;color:var(--mist)}.cut-grid dd{margin:5px 0 0;font-variant-numeric:tabular-nums}.payout-person{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left;gap:10px;border-radius:20px;padding:12px;margin-top:8px}.payout-person small{display:block;font-size:10px;opacity:.7;margin-top:4px}.footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:30px;color:var(--mist);font-size:11px}.footer .brand{font-size:11px}.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:20;width:min(92vw,380px);padding:13px 16px;border:1px solid var(--line);border-radius:22px;background:rgba(24,25,27,.88);backdrop-filter:blur(24px);text-align:center;box-shadow:0 10px 45px #0008}.empty{color:var(--mist);font-size:13px;padding:8px 0}.chart-empty{color:var(--mist);font-size:13px;padding-top:12px}.notice-trigger{position:relative}.line{height:1px;background:var(--line);margin:16px 0}@media(min-width:1024px){.app{margin-left:40px;margin-right:auto;padding-top:28px}.scrim{background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.82) 36%,rgba(0,0,0,.28) 66%,rgba(0,0,0,.48) 100%)}}@media(max-width:380px){.card{padding:17px}.name{font-size:21px}.ring{width:95px;flex-basis:95px}.metric-value{font-size:15px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
-</style></head>
-<body><div class="scene" aria-hidden="true"><canvas id="metal-scene"></canvas></div><div class="scrim"></div><main class="app" id="app"></main><div id="toast" class="toast" role="status" hidden></div>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#000;
+  --text:#f2f2f2;
+  --muted:#8a8a8e;
+  --dim:#5c5c60;
+  --chrome:#e8e8ea;
+  --chrome2:#9a9a9e;
+  --line:rgba(255,255,255,.1);
+  --line2:rgba(255,255,255,.18);
+  --glass:rgba(255,255,255,.04);
+  --glass2:rgba(255,255,255,.07);
+  --ok:#3dff9a;
+  --wait:#ffd56a;
+  --bad:#ff5c5c;
+  --info:#7eb6ff;
+  --radius:18px;
+  --font:'Manrope',system-ui,sans-serif;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#000;color:var(--text);-webkit-font-smoothing:antialiased}
+body{
+  min-height:100dvh;overflow-x:hidden;font-family:var(--font);font-size:14px;line-height:1.45;
+  background:
+    radial-gradient(900px 520px at 85% 8%,rgba(180,180,190,.09),transparent 55%),
+    radial-gradient(700px 400px at 10% 60%,rgba(120,120,130,.06),transparent 50%),
+    #000;
+}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:none;background:none}
+button:disabled{opacity:.35;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:1px solid rgba(255,255,255,.4);outline-offset:3px}
+::selection{background:rgba(255,255,255,.22)}
+
+/* chrome text */
+.chrome-text{
+  background:linear-gradient(180deg,#fff 0%,#d8d8dc 38%,#8e8e94 72%,#cfcfd4 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 20px rgba(255,255,255,.12));
+}
+
+/* splash */
+.splash{
+  position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:#000;
+  transition:opacity 1s var(--ease-out),visibility 1s;
+}
+.splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.splash-inner{text-align:center;padding:24px}
+.splash-logo{
+  width:min(200px,46vw);height:auto;margin:0 auto 22px;display:block;
+  opacity:0;transform:scale(.92) translateY(10px);
+  animation:logoIn 1.1s var(--ease-out) .1s forwards;
+  filter:drop-shadow(0 0 40px rgba(255,255,255,.15));
+}
+.splash-brand{
+  font-family:var(--display);font-size:clamp(28px,8vw,40px);font-weight:600;letter-spacing:.02em;
+  opacity:0;animation:rise .9s var(--ease-out) .45s forwards;
+}
+.splash-tag{
+  margin-top:10px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);
+  opacity:0;animation:rise .8s var(--ease-out) .7s forwards;
+}
+@keyframes logoIn{to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+
+/* ambient crystals (css) */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.crystal{
+  position:absolute;width:40px;height:70px;
+  background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.02) 50%,transparent);
+  clip-path:polygon(50% 0%,80% 35%,65% 100%,35% 100%,20% 35%);
+  opacity:.25;filter:blur(.3px);
+  animation:floatY 7s ease-in-out infinite;
+}
+.crystal.c1{top:12%;left:6%;animation-delay:0s;transform:rotate(-25deg)}
+.crystal.c2{top:22%;right:8%;width:28px;height:50px;animation-delay:1.2s;opacity:.18}
+.crystal.c3{bottom:18%;left:12%;width:22px;height:40px;animation-delay:2s;opacity:.15;transform:rotate(15deg)}
+.crystal.c4{bottom:28%;right:14%;width:32px;height:56px;animation-delay:.6s;opacity:.2}
+
+.app{position:relative;z-index:2;width:min(100%,440px);margin:0 auto;padding:16px 16px 52px}
+@media(min-width:600px){.app{width:min(100%,470px);padding-top:24px}}
+
+/* header */
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand-lockup{display:flex;align-items:center;gap:10px}
+.brand-logo{
+  width:42px;height:42px;object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(255,255,255,.2));
+  animation:floatY 6s ease-in-out infinite;
+}
+.brand-text{display:flex;flex-direction:column;gap:1px}
+.brand-name{
+  font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:.01em;line-height:1.1;
+  background:linear-gradient(180deg,#fff 10%,#c4c4c8 55%,#8a8a90 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.brand-sub{font-size:9px;letter-spacing:.22em;color:var(--dim);text-transform:uppercase}
+
+.iconbtn{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:var(--glass);border:1px solid var(--line);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  transition:transform .35s var(--ease),border-color .25s,background .25s;
+  position:relative;
+}
+.iconbtn:hover{background:var(--glass2);border-color:var(--line2);transform:scale(1.05)}
+.iconbtn:active{transform:scale(.96)}
+.iconbtn svg{width:17px;height:17px;opacity:.9}
+.dot{
+  position:absolute;right:9px;top:9px;width:7px;height:7px;border-radius:50%;
+  background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.2);
+}
+
+/* hero logo block */
+.hero{
+  margin:20px 0 8px;text-align:center;
+  opacity:0;animation:fadeUp .8s var(--ease-out) .05s forwards;
+}
+.hero-logo{
+  width:min(180px,52vw);height:auto;margin:0 auto 14px;display:block;
+  filter:drop-shadow(0 0 50px rgba(255,255,255,.18));
+  animation:floatY 7s ease-in-out infinite;
+}
+.hero-title{
+  font-family:var(--display);font-size:clamp(26px,7vw,34px);font-weight:600;letter-spacing:.02em;
+  background:linear-gradient(180deg,#fff 0%,#d0d0d4 40%,#909096 75%,#cacace 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-tag{
+  margin-top:8px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+}
+
+/* identity under hero when in cabinet */
+.identity{margin:18px 0 4px;opacity:0;animation:fadeUp .7s var(--ease-out) .1s forwards}
+.name{font-size:24px;font-weight:600;letter-spacing:-.03em}
+.role-line{margin-top:4px;font-size:12px;color:var(--muted)}
+.balance-wrap{margin:14px 0 4px;opacity:0;animation:fadeUp .7s var(--ease-out) .16s forwards}
+.balance{
+  font-size:clamp(32px,8vw,40px);font-weight:600;letter-spacing:-.04em;
+  background:linear-gradient(180deg,#fff 0%,#b8b8bc 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.balance-label{margin-top:2px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+
+/* chips */
+.people-switch{
+  display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px;scrollbar-width:none;
+  opacity:0;animation:fadeUp .7s var(--ease-out) .2s forwards;
+}
+.people-switch::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;min-height:38px;padding:0 14px;border-radius:99px;
+  background:var(--glass);border:1px solid var(--line);font-size:12px;font-weight:500;
+  color:var(--chrome2);white-space:nowrap;transition:all .35s var(--ease);
+}
+.chip:hover{border-color:var(--line2);color:var(--text)}
+.chip.active{
+  background:linear-gradient(180deg,#f4f4f6,#c8c8cc);
+  color:#0a0a0a;border-color:transparent;
+  box-shadow:0 6px 24px rgba(255,255,255,.12),0 4px 16px rgba(0,0,0,.4);
+}
+
+/* cards */
+.stack{display:flex;flex-direction:column;gap:11px;margin-top:10px}
+.card{
+  border-radius:var(--radius);padding:16px 16px;
+  background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid var(--line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 12px 40px rgba(0,0,0,.35);
+  backdrop-filter:blur(24px) saturate(140%);
+  -webkit-backdrop-filter:blur(24px) saturate(140%);
+  opacity:0;transform:translateY(16px);
+  animation:cardIn .7s var(--ease-out) forwards;
+  transition:border-color .3s,transform .4s var(--ease);
+}
+.card:hover{border-color:var(--line2)}
+.stack>.card:nth-child(1){animation-delay:.06s}
+.stack>.card:nth-child(2){animation-delay:.12s}
+.stack>.card:nth-child(3){animation-delay:.18s}
+.stack>.card:nth-child(4){animation-delay:.24s}
+.stack>.card:nth-child(5){animation-delay:.3s}
+@keyframes cardIn{to{opacity:1;transform:none}}
+
+.card-title{
+  font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:12px;
+}
+.card h3{font-size:16px;font-weight:600;letter-spacing:-.02em}
+.muted{color:var(--muted);font-size:12px}
+.dim{color:var(--dim);font-size:11px}
+
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{
+  padding:12px;border-radius:12px;
+  background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.06);
+}
+.stat-val{font-size:20px;font-weight:600;letter-spacing:-.03em}
+.stat-label{margin-top:3px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+
+.pill{
+  display:inline-flex;align-items:center;padding:3px 9px;border-radius:99px;
+  font-size:10px;font-weight:600;letter-spacing:.04em;
+  background:rgba(255,255,255,.08);color:var(--chrome2);
+}
+.pill.ok{background:rgba(61,255,154,.12);color:var(--ok)}
+.pill.wait{background:rgba(255,213,106,.12);color:var(--wait)}
+.pill.bad{background:rgba(255,92,92,.12);color:var(--bad)}
+.pill.info{background:rgba(126,182,255,.12);color:var(--info)}
+
+.row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.row:last-child{border-bottom:none;padding-bottom:0}
+.row:first-child{padding-top:0}
+.row-title{font-size:13px;font-weight:500}
+.row-sub{font-size:11px;color:var(--muted);margin-top:2px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:44px;padding:0 16px;border-radius:99px;
+  font-size:13px;font-weight:600;
+  background:linear-gradient(180deg,#f6f6f8,#c2c2c6);
+  color:#0a0a0a;border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 4px 20px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .35s var(--ease),box-shadow .35s,opacity .25s;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(255,255,255,.1),0 6px 20px rgba(0,0,0,.4)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{
+  background:var(--glass);color:var(--text);border:1px solid var(--line);
+  box-shadow:none;
+}
+.btn.ghost:hover{background:var(--glass2);border-color:var(--line2)}
+.btn.block{width:100%}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn-row .btn{flex:1;min-width:110px}
+
+.tabs{
+  display:flex;gap:3px;padding:3px;border-radius:12px;margin-bottom:2px;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);
+  opacity:0;animation:fadeUp .6s var(--ease-out) .08s forwards;
+}
+.tab{
+  flex:1;min-height:34px;padding:0 6px;border-radius:9px;
+  font-size:11px;font-weight:600;color:var(--muted);transition:all .3s var(--ease);
+}
+.tab.active{
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.06));
+  color:var(--text);border:1px solid rgba(255,255,255,.08);
+}
+.tab:hover:not(.active){color:var(--chrome2)}
+
+.field{margin-bottom:11px}
+.field label{display:block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:5px}
+.field input,.field select{
+  width:100%;min-height:44px;padding:0 12px;border-radius:11px;
+  background:rgba(0,0,0,.4);border:1px solid var(--line);color:var(--text);
+  transition:border-color .25s;
+}
+.field input:focus,.field select:focus{border-color:var(--line2)}
+.field select option{background:#111}
+.type-row{display:flex;gap:8px;margin-bottom:11px}
+.typebtn{
+  flex:1;min-height:50px;padding:8px 10px;border-radius:12px;text-align:left;
+  background:var(--glass);border:1px solid var(--line);transition:all .3s var(--ease);
+}
+.typebtn strong{display:block;font-size:12px;font-weight:600}
+.typebtn span{font-size:10px;color:var(--muted)}
+.typebtn.active{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.09)}
+
+.chart{display:flex;align-items:flex-end;gap:5px;height:64px;margin-top:8px}
+.bar{
+  flex:1;border-radius:5px 5px 2px 2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,.06));
+  transform-origin:bottom;transform:scaleY(0);
+  animation:barUp .75s var(--ease-out) forwards;
+  box-shadow:0 0 12px rgba(255,255,255,.08);
+}
+@keyframes barUp{to{transform:scaleY(1)}}
+
+.link-box{
+  margin-top:8px;padding:11px 12px;border-radius:11px;
+  background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.06);
+  font-size:11px;color:var(--chrome2);word-break:break-all;line-height:1.4;
+}
+
+/* feature strip like banner */
+.features{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;
+  opacity:0;animation:fadeUp .7s var(--ease-out) .22s forwards;
+}
+.feat{
+  padding:12px;border-radius:14px;
+  background:var(--glass);border:1px solid var(--line);
+}
+.feat-icon{
+  width:28px;height:28px;border-radius:8px;margin-bottom:8px;
+  display:grid;place-items:center;font-size:12px;
+  border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--chrome);
+}
+.feat strong{display:block;font-size:11px;font-weight:600;letter-spacing:.02em}
+.feat span{display:block;margin-top:3px;font-size:10px;color:var(--dim);line-height:1.35}
+
+.notices{
+  position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.6);backdrop-filter:blur(14px);
+  opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;
+}
+.notices.open{opacity:1;visibility:visible}
+.notices-panel{
+  position:absolute;left:50%;top:10%;transform:translateX(-50%) translateY(14px);
+  width:min(100% - 28px,400px);max-height:72vh;overflow:auto;
+  border-radius:20px;padding:18px;
+  background:rgba(12,12,14,.94);border:1px solid var(--line2);
+  box-shadow:0 24px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08);
+  transition:transform .45s var(--ease-out);
+}
+.notices.open .notices-panel{transform:translateX(-50%) translateY(0)}
+.notice-item{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.notice-item:last-child{border-bottom:none}
+.notice-item.unread .row-title{color:#fff}
+
+.toast{
+  position:fixed;left:50%;bottom:26px;z-index:70;
+  transform:translateX(-50%) translateY(18px);
+  padding:11px 16px;border-radius:99px;
+  background:linear-gradient(180deg,#f4f4f6,#c8c8cc);color:#0a0a0a;
+  font-size:12px;font-weight:600;
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
+  opacity:0;pointer-events:none;transition:opacity .35s,transform .45s var(--ease-out);
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.footer{
+  margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  opacity:0;animation:fadeIn .8s .35s forwards;
+}
+.footer-brand{
+  font-family:var(--display);font-size:13px;letter-spacing:.04em;
+  background:linear-gradient(180deg,#fff,#888);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div class="splash" aria-hidden="true">
+  <div class="splash-inner">
+    <img class="splash-logo" src="assets/logo-512.png" alt="ECHO.Academy" width="200" height="200">
+    <div class="splash-brand chrome-text">ECHO.Academy</div>
+    <div class="splash-tag">обучение, которое приносит результат</div>
+  </div>
+</div>
+<div class="ambient" aria-hidden="true">
+  <div class="crystal c1"></div>
+  <div class="crystal c2"></div>
+  <div class="crystal c3"></div>
+  <div class="crystal c4"></div>
+</div>
+<main class="app" id="app"></main>
+<div id="toast" class="toast" role="status" hidden></div>
 <script>
-const $=s=>document.querySelector(s);const money=n=>new Intl.NumberFormat('ru-RU',{style:'currency',currency:'RUB',maximumFractionDigits:0}).format(Math.round(n));const shortMoney=n=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(n))+' ₽';const ago=d=>new Date(Date.parse('2026-10-01T12:00:00Z')-d*86400000).toISOString();const dateLabel=s=>new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(s));const ROLE={admin:'админ',traffer:'трафер',teacher:'преподаватель',student:'ученик'};const STATUS={new:'новая',calling:'созвон',rejected:'отказ',waiting_payment:'счёт',paid:'оплачено'};const IDS={admin:900000001,traffer:900000002,teacher:900000003,kirill:900000004,sofia:900000005,ilya:900000006,platon:900000007,timur:900000008,nora:900000009,mira:900000010};const castIds=[IDS.admin,IDS.traffer,IDS.teacher,IDS.kirill];const refLink=code=>`https://t.me/EchoAcademyBot?start=ref_${code}`;const split=(type,hasTraffer,bundle=false)=>{let total=type==='individual'?90000:bundle?180000:60000;let tc=hasTraffer?(type==='individual'?total*.1:total*.15*(bundle?3:1)):0;let teacher=total*.5;return {total,trafferCut:tc,teacherCut:teacher,adminCut:total-tc-teacher}};
-function seed(){const users=[['Ева Морозова','eva','admin',40],['Марк Левин','marklev','traffer',36],['Алина Сергеева','alina','teacher',34],['Кирилл Орлов','kirill','student',8],['Софья Ким','sofia','student',18],['Илья Волков','ilya','student',22],['Платон Широков','platon','student',16],['Тимур Сафин','timur','student',12],['Нора Белова','nora','student',4],['Мира Донцова','mira','student',3]].map((x,i)=>({id:900000001+i,fullName:x[0],username:x[1],role:x[2],balance:0,isActive:true,refCode:'user_'+(900000001+i),createdAt:ago(x[3])}));const courses=[{id:1,title:'Моушн-дизайн',type:'individual',basePrice:90000,durationDays:60},{id:2,title:'Разработка ботов',type:'group',basePrice:60000,durationDays:45},{id:3,title:'Саунд-дизайн',type:'individual',basePrice:90000,durationDays:50}].map(c=>({...c,createdAt:ago(40)}));const leads=[{id:1,studentId:IDS.ilya,trafferId:null,courseId:3,status:'paid',createdAt:ago(14)},{id:2,studentId:IDS.platon,trafferId:IDS.traffer,courseId:1,status:'paid',createdAt:ago(8)},{id:3,studentId:IDS.sofia,trafferId:IDS.traffer,courseId:2,status:'paid',createdAt:ago(3)},{id:4,studentId:IDS.kirill,trafferId:IDS.traffer,courseId:1,status:'waiting_payment',createdAt:ago(1)},{id:5,studentId:IDS.nora,trafferId:IDS.traffer,courseId:2,status:'new',createdAt:ago(1)},{id:6,studentId:IDS.timur,trafferId:null,courseId:3,status:'rejected',createdAt:ago(5)},{id:7,studentId:IDS.mira,trafferId:IDS.traffer,courseId:2,status:'calling',createdAt:ago(2)}];const d1=split('individual',false),d2=split('individual',true),d3=split('group',true);const deals=[{id:1,leadId:1,studentId:IDS.ilya,trafferId:null,teacherId:IDS.teacher,groupId:null,...d1,paymentStatus:'success',payoutStatus:'paid',createdAt:ago(12)},{id:2,leadId:2,studentId:IDS.platon,trafferId:IDS.traffer,teacherId:IDS.teacher,groupId:null,...d2,paymentStatus:'success',payoutStatus:'unpaid',createdAt:ago(6)},{id:3,leadId:3,studentId:IDS.sofia,trafferId:IDS.traffer,teacherId:IDS.teacher,groupId:'G-14',...d3,paymentStatus:'success',payoutStatus:'unpaid',createdAt:ago(2)}];for(const d of deals)if(d.payoutStatus!=='paid'){addBalance(users,d.trafferId,d.trafferCut);addBalance(users,d.teacherId,d.teacherCut);addBalance(users,IDS.admin,d.adminCut)}return {users,courses,leads,deals,notices:[{id:1,userId:IDS.traffer,title:'Начисление',body:'Платон Широков оплатил «Моушн-дизайн». На баланс +9 000 ₽.',createdAt:ago(6),read:true},{id:2,userId:IDS.teacher,title:'Новый ученик',body:'Софья Ким — место в группе «Разработка ботов». Вам +30 000 ₽.',createdAt:ago(2),read:false},{id:3,userId:IDS.traffer,title:'Начисление',body:'Софья Ким оплатила групповое место. На баланс +9 000 ₽.',createdAt:ago(2),read:false},{id:4,userId:IDS.admin,title:'К выплате',body:'На балансах: Марк Левин 18 000 ₽, Алина Сергеева 75 000 ₽.',createdAt:ago(1),read:false}],nextUserId:900000100,nextLeadId:8,nextDealId:4,nextNoticeId:5,activeUserId:IDS.traffer}}
-function addBalance(users,id,n){const u=users.find(x=>x.id===id);if(u)u.balance=Math.round((u.balance+n)*100)/100}let state;try{state=JSON.parse(localStorage.getItem('echo-academy-v1'))||seed()}catch{state=seed()}let tab='overview',bell=false,toastTimer=null,dealType='individual',dealNoTraffer=false,dealStudent='900000004',dealTeacher='900000003',dealTraffer='900000002',payoutPicked=null,payoutAmount='';function save(){localStorage.setItem('echo-academy-v1',JSON.stringify(state))}function user(id){return state.users.find(x=>x.id===Number(id))}function course(id){return state.courses.find(x=>x.id===Number(id))}function notify(msg){const t=$('#toast');t.textContent=msg;t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.hidden=true,2800)}function card(s){return `<section class="card">${s}</section>`}function pill(text,solid=false){return `<span class="pill ${solid?'solid':''}">${text}</span>`}function ring(value){value=Math.max(0,Math.min(1,value||0));const circ=2*Math.PI*42;return `<svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="42" stroke="rgba(255,255,255,.12)" stroke-width="8" fill="none"/><circle cx="60" cy="60" r="42" stroke="#c0c0c0" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-value)}" transform="rotate(-90 60 60)"/><text x="60" y="64" text-anchor="middle" fill="#fff" font-size="22">${Math.round(value*100)}%</text></svg>`}function series(deals,pick){const map={};deals.slice().sort((a,b)=>a.createdAt.localeCompare(b.createdAt)).forEach(d=>{const label=dateLabel(d.createdAt);map[label]=(map[label]||0)+pick(d)});return Object.entries(map).map(([label,amount])=>({label,amount}))}function chart(points,label){if(!points.length)return `<div class="chart-empty">Пока нет оплаченных сделок.</div>`;const max=Math.max(...points.map(p=>p.amount),1),w=500,h=140,pad=12;const coords=points.map((p,i)=>[pad+(points.length===1?w/2-pad:i*(w-2*pad)/(points.length-1)),h-pad-(p.amount/max)*(h-2*pad)]);const line=coords.map(p=>p.join(',')).join(' '),area=`${pad},${h} ${line} ${w-pad},${h}`;return `<svg class="chart" viewBox="0 0 ${w} ${h+20}" preserveAspectRatio="none"><defs><linearGradient id="chartfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c0c0c0" stop-opacity=".42"/><stop offset="100%" stop-color="#c0c0c0" stop-opacity="0"/></linearGradient></defs><polygon points="${area}" fill="url(#chartfill)"/><polyline points="${line}" fill="none" stroke="#c0c0c0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${points.map((p,i)=>`<text x="${coords[i][0]}" y="${h+14}" fill="#8d8d8d" font-size="10" text-anchor="middle">${p.label}</text>`).join('')}</svg>`}function header(active){const cast=castIds.map(user).filter(Boolean),extra=cast.some(x=>x.id===active.id)?[]:[active],mine=state.notices.filter(n=>n.userId===active.id),unread=mine.filter(n=>!n.read).length;return `<header><div class="topline"><div><div class="brand">ECHO</div><div class="brand-sub">ACADEMY</div></div><button class="iconbtn notice-trigger" data-action="bell" aria-label="Уведомления" aria-expanded="${bell}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>${unread?'<i class="dot"></i>':''}</button></div>${bell?`<div class="noticebox">${mine.length?mine.map(n=>`<article class="notice"><p>${n.title}</p><p class="muted">${n.body}</p></article>`).join(''):'<p class="empty">Тишина. Начислений и запросов нет.</p>'}</div>`:''}<div class="people-switch" role="radiogroup" aria-label="Кабинет">${[...cast,...extra].map(p=>`<button class="chip ${p.id===active.id?'active':''}" data-action="pick-user" data-id="${p.id}" role="radio" aria-checked="${p.id===active.id}">${p.fullName.split(' ')[0]}</button>`).join('')}</div></header>`}function leadList(title,leads){return `<div class="lead-list"><h2>${title}</h2>${leads.length?leads.slice().sort((a,b)=>b.id-a.id).map(l=>{const student=user(l.studentId),tr=user(l.trafferId),c=course(l.courseId);return card(`<div class="between"><div><div>${student?.fullName||'Без имени'}</div><div class="muted small" style="margin-top:5px">${c?.title||'Ниша'}</div></div>${pill(STATUS[l.status],l.status==='paid')}</div><div class="lead-meta">#${l.id} · ученик ${l.studentId} · трафер ${tr?`${tr.fullName} · ${tr.id}`:'—'} · ${dateLabel(l.createdAt)}</div>`) }).join(''):'<div class="empty">Заявок нет.</div>'}</div>`}
-function trafferHome(u){const leads=state.leads.filter(l=>l.trafferId===u.id),deals=state.deals.filter(d=>d.trafferId===u.id),paid=leads.filter(l=>l.status==='paid').length,link=refLink(u.refCode);return card(`<div class="eyebrow">↗ <span>Моя ссылка</span></div><div class="linktext">${link}</div><div class="btns"><button class="btn primary" data-action="copy" data-text="${link}">▢ Копировать</button><button class="btn ghost" data-action="arrive">↻ Новый ученик по ссылке</button></div>`)+card(`<div class="row">${ring(leads.length?paid/leads.length:0)}<div><h2>Статистика</h2><p class="silver" style="margin:5px 0">${paid} оплат из ${leads.length} заявок</p><p class="muted tiny">Конверсия — доля заявок со статусом «оплачено».</p></div></div>${chart(series(deals,d=>d.trafferCut),'Начисления')}`)+card(`<div class="section-head"><h2>Баланс</h2><button class="btn primary" data-action="request-payout" ${u.balance<=0?'disabled':''}>Запросить вывод</button></div><p class="muted small">Админ увидит id и сумму в уведомлениях.</p>`)+leadList('Мои заявки',leads)}function teacherHome(u){const deals=state.deals.filter(d=>d.teacherId===u.id);return card(`<div class="section-head"><h2>Баланс</h2><button class="btn primary" data-action="request-payout" ${u.balance<=0?'disabled':''}>Запросить вывод</button></div>`)+`<div class="lead-list"><h2>Ученики</h2>${deals.length?deals.map(d=>{const st=user(d.studentId),l=state.leads.find(x=>x.id===d.leadId),c=l&&course(l.courseId);return card(`<div class="between"><div>${st?.fullName||'Ученик'}<div class="muted small" style="margin-top:5px">${c?.title||'Курс'}</div></div>${pill(d.payoutStatus==='paid'?'выплачено':money(d.teacherCut),d.payoutStatus==='paid')}</div>`) }).join(''):'<div class="empty">Пока никто не закреплён.</div>'}</div>`}function studentHome(u){const mine=state.leads.filter(l=>l.studentId===u.id),open=mine.filter(l=>['new','calling','waiting_payment'].includes(l.status)),deals=state.deals.filter(d=>d.studentId===u.id);let html=`<div class="lead-list"><h2>Мои курсы</h2>${deals.length?deals.map(d=>{const l=state.leads.find(x=>x.id===d.leadId),c=l&&course(l.courseId);return card(`<div class="between"><div>${c?.title||'Курс'}<div class="muted small" style="margin-top:5px">${c?c.durationDays+' дней':'Доступ открыт'}</div></div>${pill(money(d.totalAmount),true)}</div>`) }).join(''):card('<p class="muted" style="margin:0">Оплаченных курсов пока нет.</p>')}</div><div class="lead-list"><h2>Оплатить</h2>${open.length?open.map(l=>{const c=course(l.courseId);return card(`<div class="between"><div>${c?.title}<div class="silver small" style="margin-top:5px">${STATUS[l.status]} · ${c?money(c.basePrice):''}</div></div>${pill(c?.type==='group'?'группа':'индив.')}</div><button class="btn primary full" data-action="pay" data-id="${l.id}">Оплатить</button>`) }).join(''):card('<p class="muted" style="margin:0">Нет открытого счёта. Выберите направление ниже.</p>')}</div><div class="lead-list"><h2>Направления</h2>${state.courses.map(c=>card(`<div class="between"><div>${c.title}<div class="muted small" style="margin-top:5px">${c.type==='group'?'Группа':'Индивидуально'} · ${c.durationDays} дней</div></div><div style="font-family:var(--display);font-size:13px">${money(c.basePrice)}</div></div><button class="btn ghost" style="margin-top:15px" data-action="enroll" data-id="${c.id}">Получить счёт</button>`)).join('')}</div>`;return html}function systemPanel(){const leads=state.leads,deals=state.deals,paid=leads.filter(l=>l.status==='paid').length,turnover=deals.reduce((s,d)=>s+d.totalAmount,0),owed=state.users.reduce((s,u)=>s+u.balance,0);return card(`<h2>Статистика системы</h2><div class="metric-grid"><div><div class="metric-label">Лиды</div><div class="metric-value">${leads.length}</div></div><div><div class="metric-label">Оплачено</div><div class="metric-value">${paid}</div></div><div><div class="metric-label">Оборот</div><div class="metric-value">${money(turnover)}</div></div><div><div class="metric-label">К выплате</div><div class="metric-value">${money(owed)}</div></div></div><div class="row" style="margin-top:20px">${ring(leads.length?paid/leads.length:0)}<p class="silver small">Конверсия всех заявок в оплату.</p></div>${chart(series(deals,d=>d.totalAmount),'Оборот')}`)}function quickPeople(role,field){return `<div class="quick-picks">${state.users.filter(u=>u.role===role).slice(0,8).map(u=>`<button class="personbtn" data-action="set-field" data-field="${field}" data-id="${u.id}">${u.fullName.split(' ')[0]} · ${u.id}</button>`).join('')}</div>`}function field(label,id,value){return `<label class="field"><span>${label}</span><input id="${id}" inputmode="numeric" autocomplete="off" value="${value}"></label>`}function dealPanel(){const cuts=split(dealType,!dealNoTraffer&&!!dealTraffer.trim(),dealType==='group');return card(`<h2>Создать сделку</h2><p class="muted small">Индивидуально 90 000 ₽: трафер 10%, преподаватель 50%, админ 40%. Группа 180 000 ₽: трафер 9 000 ₽ с места, преподаватель 50%, админ остаток.</p><div class="type-row"><button class="typebtn ${dealType==='individual'?'active':''}" data-action="deal-type" data-type="individual">Индивидуально · 90к</button><button class="typebtn ${dealType==='group'?'active':''}" data-action="deal-type" data-type="group">Группа · 180к</button></div>${field('ID ученика','deal-student',dealStudent)}${quickPeople('student','dealStudent')}${field('ID преподавателя','deal-teacher',dealTeacher)}${quickPeople('teacher','dealTeacher')}${field('ID трафера','deal-traffer',dealTraffer)}${quickPeople('traffer','dealTraffer')}<button class="btn ghost" data-action="no-traffer">${dealNoTraffer?'Трафер выключен':'Без трафера'}</button><dl class="cut-grid"><div><dt>Сумма</dt><dd>${money(cuts.total)}</dd></div><div><dt>Трафер</dt><dd>${money(cuts.trafferCut)}</dd></div><div><dt>Преподаватель</dt><dd>${money(cuts.teacherCut)}</dd></div><div><dt>Админ</dt><dd>${money(cuts.adminCut)}</dd></div></dl><button class="btn primary full" data-action="create-deal">Провести сделку</button>`)}function payoutsPanel(){const owed=state.users.filter(u=>u.balance>0);if(!owed.length)return card('<h2>Выплаты</h2><p class="muted">Никто не ждёт деньги.</p>');let person=owed.find(u=>u.id===payoutPicked)||owed[0];if(payoutPicked===null){payoutPicked=person.id;payoutAmount=String(Math.round(person.balance))}return card(`<h2>Выплаты</h2><div style="margin-top:10px">${owed.map(u=>`<button class="payout-person ${u.id===person.id?'active':''}" data-action="pick-payout" data-id="${u.id}"><span>${u.fullName}<small>${ROLE[u.role]} · ${u.id}</small></span><span>${money(u.balance)}</span></button>`).join('')}</div>${field('Сумма выплаты','payout-amount',payoutAmount)}<button class="btn primary full" data-action="make-payout">Выплатить</button>`)}function adminHome(){const tabs=[['overview','Система'],['leads','Все лиды'],['deal','Сделка'],['payouts','Выплаты']];return `<div class="tabs">${tabs.map(([id,label])=>`<button class="tab ${tab===id?'active':''}" data-action="tab" data-tab="${id}">${label}</button>`).join('')}</div>${tab==='overview'?systemPanel():tab==='leads'?leadList('Все лиды',state.leads):tab==='deal'?dealPanel():payoutsPanel()}`}function render(){const active=user(state.activeUserId)||state.users[0];if(!active)return;$('#app').innerHTML=`${header(active)}<p class="name">${active.fullName}</p><p class="muted" style="margin:0">${ROLE[active.role]}${active.username?' · @'+active.username:''}</p><div class="balance">${money(active.balance)}</div><div class="balance-label">к выплате</div><div class="stack">${active.role==='traffer'?trafferHome(active):active.role==='teacher'?teacherHome(active):active.role==='student'?studentHome(active):adminHome()}</div><footer class="footer"><span class="brand">ECHO</span><button class="btn ghost" data-action="reset" style="min-height:36px;padding:0 10px;font-size:11px">Сбросить витрину</button></footer>`}
-function addNotice(userId,title,body){state.notices.unshift({id:state.nextNoticeId++,userId,title,body,createdAt:new Date().toISOString(),read:false})}function actionPay(id){const l=state.leads.find(x=>x.id===id);if(!l)return 'Счёт не найден';if(l.status==='paid')return 'Счёт уже оплачен';const c=course(l.courseId),traffer=l.trafferId,teacher=state.users.find(u=>u.role==='teacher'),cuts=split(c.type,!!traffer,c.type==='group');l.status='paid';const d={id:state.nextDealId++,leadId:l.id,studentId:l.studentId,trafferId:traffer,teacherId:teacher?.id,groupId:c.type==='group'?'seat-'+l.id:null,...cuts,paymentStatus:'success',payoutStatus:'unpaid',createdAt:new Date().toISOString()};state.deals.unshift(d);addBalance(state.users,traffer,cuts.trafferCut);addBalance(state.users,teacher?.id,cuts.teacherCut);addBalance(state.users,IDS.admin,cuts.adminCut);if(traffer)addNotice(traffer,'Начисление',`${user(l.studentId)?.fullName} оплатил(а) «${c.title}». На баланс +${money(cuts.trafferCut)}.`);if(teacher)addNotice(teacher.id,'Новый ученик',`${user(l.studentId)?.fullName} — ${c.title}. Вам +${money(cuts.teacherCut)}.`);return `Оплата прошла. Сделка ${shortMoney(cuts.total)}`}function createDeal(){const sid=Number(dealStudent),tid=Number(dealTeacher),tr=dealNoTraffer||!dealTraffer.trim()?null:Number(dealTraffer);if(!Number.isInteger(sid)||!Number.isInteger(tid))return 'ID ученика и преподавателя — целые числа';if(tr!==null&&!Number.isInteger(tr))return 'ID трафера — целое число или отключите трафера';const st=user(sid),te=user(tid),tra=tr?user(tr):null;if(!st)return 'Ученик с таким ID не найден';if(st.role!=='student')return 'Этот ID не принадлежит ученику';if(!te||te.role!=='teacher')return 'Преподаватель не найден';if(tr&&(!tra||tra.role!=='traffer'))return 'Трафер не найден';const c=state.courses.find(c=>c.type===dealType);if(!c)return 'Курс этого типа не заведён';const cuts=split(dealType,!!tr,dealType==='group');const lead=state.leads.slice().reverse().find(l=>l.studentId===sid&&['new','calling','waiting_payment'].includes(l.status));if(lead){lead.status='paid';lead.courseId=c.id;lead.trafferId=tr}const d={id:state.nextDealId++,leadId:lead?.id||null,studentId:sid,trafferId:tr,teacherId:tid,groupId:dealType==='group'?'G-'+state.nextDealId:null,...cuts,paymentStatus:'success',payoutStatus:'unpaid',createdAt:new Date().toISOString()};state.deals.unshift(d);addBalance(state.users,tr,cuts.trafferCut);addBalance(state.users,tid,cuts.teacherCut);addBalance(state.users,IDS.admin,cuts.adminCut);addNotice(tid,'Новая сделка',`${st.fullName} — ${c.title}. Вам +${money(cuts.teacherCut)}.`);return `Сделка создана · ${shortMoney(cuts.total)}`}
-$('#app').addEventListener('input',e=>{if(e.target.id==='deal-student')dealStudent=e.target.value;if(e.target.id==='deal-teacher')dealTeacher=e.target.value;if(e.target.id==='deal-traffer'){dealTraffer=e.target.value;dealNoTraffer=false}if(e.target.id==='payout-amount')payoutAmount=e.target.value});$('#app').addEventListener('click',async e=>{const b=e.target.closest('[data-action]');if(!b)return;const a=b.dataset.action;let message='';if(a==='bell'){bell=!bell;if(bell)state.notices.filter(n=>n.userId===state.activeUserId).forEach(n=>n.read=true)}else if(a==='pick-user'){state.activeUserId=Number(b.dataset.id);tab='overview';bell=false;payoutPicked=null}else if(a==='tab')tab=b.dataset.tab;else if(a==='copy'){try{await navigator.clipboard.writeText(b.dataset.text);message='Ссылка скопирована'}catch{message='Скопируйте ссылку вручную: '+b.dataset.text}}else if(a==='arrive'){const traff=user(state.activeUserId),c=state.courses[0],id=state.nextUserId++,lid=state.nextLeadId++,names=['Глеб Морозов','Таисия Рэй','Лев Артемьев','Ника Соколова','Марта Эш'],name=names[(id-900000100)%names.length]||'Новый ученик';state.users.push({id,username:'guest'+id,fullName:name,role:'student',balance:0,isActive:true,refCode:'user_'+id,createdAt:new Date().toISOString()});state.leads.unshift({id:lid,studentId:id,trafferId:traff.id,courseId:c.id,status:'new',createdAt:new Date().toISOString()});addNotice(traff.id,'Новый переход',`${name} открыл ссылку. Заявка #${lid} · ${c.title} · статус new.`);message=`${name} · id ${id} · заявка #${lid}`}else if(a==='request-payout'){const u=user(state.activeUserId);if(u.balance<=0)message='Нет средств для вывода';else{addNotice(IDS.admin,'Запрос выплаты',`${u.fullName} (ID ${u.id}) запросил вывод ${money(u.balance)}.`);message='Запрос на вывод отправлен админу'}}else if(a==='tab'){}else if(a==='pay'){message=actionPay(Number(b.dataset.id))}else if(a==='enroll'){const c=course(b.dataset.id),existing=state.leads.find(l=>l.studentId===state.activeUserId&&l.courseId===c.id&&['new','calling','waiting_payment'].includes(l.status));if(existing)message=`Счёт по «${c.title}» уже открыт`;else{state.leads.unshift({id:state.nextLeadId++,studentId:state.activeUserId,trafferId:null,courseId:c.id,status:'waiting_payment',createdAt:new Date().toISOString()});message=`Счёт на «${c.title}» готов к оплате`}}else if(a==='deal-type'){dealType=b.dataset.type}else if(a==='set-field'){if(b.dataset.field==='dealStudent')dealStudent=b.dataset.id;if(b.dataset.field==='dealTeacher')dealTeacher=b.dataset.id;if(b.dataset.field==='dealTraffer'){dealTraffer=b.dataset.id;dealNoTraffer=false}}else if(a==='no-traffer')dealNoTraffer=!dealNoTraffer;else if(a==='create-deal')message=createDeal();else if(a==='pick-payout'){payoutPicked=Number(b.dataset.id);const u=user(payoutPicked);payoutAmount=String(Math.round(u.balance))}else if(a==='make-payout'){const person=user(payoutPicked),amount=Number($('#payout-amount')?.value);if(!person)message='Выберите человека';else if(!Number.isFinite(amount)||amount<=0)message='Введите сумму больше нуля';else if(amount>person.balance+.01)message='Сумма больше баланса';else{person.balance=Math.max(0,Math.round((person.balance-amount)*100)/100);if(person.balance<=.01){person.balance=0;state.deals.forEach(d=>{if((d.trafferId===person.id||d.teacherId===person.id)&&d.payoutStatus==='unpaid')d.payoutStatus='paid'})}addNotice(person.id,'Выплата',`Админ выплатил ${money(amount)}. Остаток ${money(person.balance)}.`);message=`Выплачено ${money(amount)}`}}else if(a==='reset'){state=seed();tab='overview';bell=false;dealType='individual';dealNoTraffer=false;dealStudent='900000004';dealTeacher='900000003';dealTraffer='900000002';payoutPicked=null;payoutAmount='';message='Витрина сброшена'}save();render();if(message)notify(message)});render();
-// Three.js metallic orb scene — no app framework required.
-try{const canvas=$('#metal-scene'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.setClearColor(0x000000,0);renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.08;renderer.outputColorSpace=THREE.SRGBColorSpace;const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(36,1,.1,40);camera.position.set(0,.1,5.6);const root=new THREE.Group();scene.add(root);const sphere=new THREE.Mesh(new THREE.SphereGeometry(1.12,80,80),new THREE.MeshPhysicalMaterial({color:'#c0c0c0',metalness:1,roughness:.07,clearcoat:1,clearcoatRoughness:.04}));root.add(sphere);const ringMat=new THREE.MeshPhysicalMaterial({color:'#fff',metalness:1,roughness:.18,transparent:true,opacity:.82});const ringA=new THREE.Mesh(new THREE.TorusGeometry(1.78,.011,16,180),ringMat);ringA.rotation.x=Math.PI/2.35;root.add(ringA);const ringB=new THREE.Mesh(new THREE.TorusGeometry(2.18,.007,12,160),ringMat.clone());ringB.rotation.x=Math.PI/1.65;ringB.rotation.y=.55;root.add(ringB);const count=160,positions=new Float32Array(count*3);for(let i=0;i<count;i++){const r=2.35+((i*37)%100)/100,theta=i/count*Math.PI*2*7,y=(((i*17)%100)/100-.5)*2.2;positions[i*3]=Math.cos(theta)*r;positions[i*3+1]=y;positions[i*3+2]=Math.sin(theta)*r*.72}const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(positions,3));const particles=new THREE.Points(pg,new THREE.PointsMaterial({color:'#fff',size:.028,transparent:true,opacity:.72,depthWrite:false,sizeAttenuation:true}));root.add(particles);const key=new THREE.DirectionalLight(0xffffff,2.4);key.position.set(3.5,2.4,4);scene.add(key);const rim=new THREE.DirectionalLight(0xc0c0c0,1.5);rim.position.set(-4,-1.2,-2);scene.add(rim);scene.add(new THREE.AmbientLight(0xffffff,.18));let px=0,py=0;window.addEventListener('pointermove',e=>{px=e.clientX/(innerWidth||1)*2-1;py=e.clientY/(innerHeight||1)*2-1},{passive:true});const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,started=performance.now();function fit(){const w=innerWidth,h=innerHeight;camera.aspect=w/h;camera.position.z=w>=1024?5.3:6.15;camera.updateProjectionMatrix();root.position.x=w>=1024?1.65:0;root.position.y=w>=1024?.05:.95;renderer.setSize(w,h,false)}fit();addEventListener('resize',fit);function tick(){const t=(performance.now()-started)/1000,speed=reduced?0:1;sphere.rotation.y=t*.16*speed;sphere.rotation.x=Math.sin(t*.13)*.06*speed;ringA.rotation.z=t*.11*speed;ringB.rotation.z=-t*.08*speed;particles.rotation.y=t*.045*speed;root.rotation.y+=(px*.42-root.rotation.y)*.045;root.rotation.x+=(-py*.22-root.rotation.x)*.045;renderer.render(scene,camera);requestAnimationFrame(tick)}tick()}catch(err){console.warn('Three.js scene unavailable',err)}
-</script></body></html>
+
+const $ = s => document.querySelector(s);
+const money = n => new Intl.NumberFormat('ru-RU',{style:'currency',currency:'RUB',maximumFractionDigits:0}).format(Math.round(n));
+const shortMoney = n => new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(n)) + ' ₽';
+const ago = d => new Date(Date.parse('2026-10-01T12:00:00Z') - d * 86400000).toISOString();
+const dateLabel = s => new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(s));
+const ROLE = {admin:'админ',traffer:'трафер',teacher:'преподаватель',student:'ученик'};
+const STATUS = {new:'новая',calling:'созвон',rejected:'отказ',waiting_payment:'счёт',paid:'оплачено'};
+const IDS = {admin:900000001,traffer:900000002,teacher:900000003,kirill:900000004,sofia:900000005,ilya:900000006,platon:900000007,timur:900000008,nora:900000009,mira:900000010};
+const castIds = [IDS.admin, IDS.traffer, IDS.teacher, IDS.kirill];
+const LOGO = 'assets/logo-512.png';
+const refLink = code => `https://t.me/ECHO_Academy_bot?start=ref_${code}`;
+const split = (type, hasTraffer, bundle=false) => {
+  let total = type === 'individual' ? 90000 : bundle ? 180000 : 60000;
+  let tc = hasTraffer ? (type === 'individual' ? total * .1 : total * .15 * (bundle ? 3 : 1)) : 0;
+  let teacher = total * .5;
+  return {total, trafferCut: tc, teacherCut: teacher, adminCut: total - tc - teacher};
+};
+
+function seed() {
+  const users = [
+    ['Ева Морозова','eva','admin',40],['Марк Левин','marklev','traffer',36],['Алина Сергеева','alina','teacher',34],
+    ['Кирилл Орлов','kirill','student',8],['Софья Ким','sofia','student',18],['Илья Волков','ilya','student',22],
+    ['Платон Широков','platon','student',16],['Тимур Сафин','timur','student',12],['Нора Белова','nora','student',4],['Мира Донцова','mira','student',3]
+  ].map((x,i) => ({id:900000001+i, fullName:x[0], username:x[1], role:x[2], balance:0, isActive:true, refCode:'user_'+(900000001+i), createdAt:ago(x[3])}));
+  const courses = [
+    {id:1,title:'Моушн-дизайн',type:'individual',basePrice:90000,durationDays:60},
+    {id:2,title:'Разработка ботов',type:'group',basePrice:60000,durationDays:45},
+    {id:3,title:'Саунд-дизайн',type:'individual',basePrice:90000,durationDays:50}
+  ].map(c => ({...c, createdAt:ago(40)}));
+  const leads = [
+    {id:1,studentId:IDS.ilya,trafferId:null,courseId:3,status:'paid',createdAt:ago(14)},
+    {id:2,studentId:IDS.platon,trafferId:IDS.traffer,courseId:1,status:'paid',createdAt:ago(8)},
+    {id:3,studentId:IDS.sofia,trafferId:IDS.traffer,courseId:2,status:'paid',createdAt:ago(3)},
+    {id:4,studentId:IDS.kirill,trafferId:IDS.traffer,courseId:1,status:'waiting_payment',createdAt:ago(1)},
+    {id:5,studentId:IDS.nora,trafferId:IDS.traffer,courseId:2,status:'calling',createdAt:ago(0)},
+    {id:6,studentId:IDS.mira,trafferId:null,courseId:3,status:'new',createdAt:ago(0)}
+  ];
+  const deals = [];
+  leads.filter(l => l.status === 'paid').forEach((l, idx) => {
+    const course = courses.find(c => c.id === l.courseId);
+    const s = split(course.type, !!l.trafferId, course.type === 'group');
+    deals.push({
+      id: idx+1, leadId:l.id, studentId:l.studentId, trafferId:l.trafferId, teacherId:IDS.teacher,
+      groupId: course.type==='group' ? `G-${idx+1}` : null,
+      totalAmount:s.total, trafferCut:s.trafferCut, teacherCut:s.teacherCut, adminCut:s.adminCut,
+      paymentStatus:'success', payoutStatus:'unpaid', createdAt:l.createdAt
+    });
+    const teacher = users.find(u => u.id === IDS.teacher);
+    if (teacher) teacher.balance += s.teacherCut;
+    if (l.trafferId) { const t = users.find(u => u.id === l.trafferId); if (t) t.balance += s.trafferCut; }
+    const admin = users.find(u => u.id === IDS.admin);
+    if (admin) admin.balance += s.adminCut;
+  });
+  users.forEach(u => u.balance = Math.round(u.balance));
+  return {
+    users, courses, leads, deals,
+    notices: [
+      {id:1,userId:IDS.traffer,title:'Новый лид',body:'Кирилл Орлов · Моушн-дизайн',read:false,createdAt:ago(1)},
+      {id:2,userId:IDS.teacher,title:'Новый ученик',body:'Платон Широков · Моушн-дизайн',read:true,createdAt:ago(8)},
+      {id:3,userId:IDS.kirill,title:'Счёт выставлен',body:'Моушн-дизайн · 90 000 ₽',read:false,createdAt:ago(1)}
+    ],
+    nextNoticeId: 4, nextLeadId: 7, nextDealId: 4,
+    activeUserId: IDS.admin
+  };
+}
+
+function load() {
+  try { const raw = localStorage.getItem('echo_academy_v3'); if (raw) return JSON.parse(raw); } catch {}
+  return seed();
+}
+function save() { localStorage.setItem('echo_academy_v3', JSON.stringify(state)); }
+
+let state = load();
+let tab = 'overview';
+let bell = false;
+let dealType = 'individual';
+let dealNoTraffer = false;
+let dealStudent = '900000004';
+let dealTeacher = '900000003';
+let dealTraffer = '900000002';
+let payoutPicked = null;
+let payoutAmount = '';
+
+const user = id => state.users.find(u => u.id === +id);
+const course = id => state.courses.find(c => c.id === +id);
+
+function notify(msg) {
+  const t = $('#toast');
+  t.textContent = msg; t.hidden = false; t.classList.add('show');
+  clearTimeout(notify._t);
+  notify._t = setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.hidden = true, 350); }, 2200);
+}
+
+function statusPill(st) {
+  const map = {paid:'ok', waiting_payment:'wait', rejected:'bad', calling:'info', new:'info'};
+  return `<span class="pill ${map[st]||''}">${STATUS[st]||st}</span>`;
+}
+
+function header(active) {
+  const cast = castIds.map(user).filter(Boolean);
+  const extra = cast.some(x => x.id === active.id) ? [] : [active];
+  const people = [...cast, ...extra];
+  const unread = state.notices.filter(n => n.userId === active.id && !n.read).length;
+  return `
+    <header>
+      <div class="topline">
+        <div class="brand-lockup">
+          <img class="brand-logo" src="${LOGO}" alt="ECHO" width="42" height="42">
+          <div class="brand-text">
+            <div class="brand-name">ECHO.Academy</div>
+            <div class="brand-sub">путь к результату</div>
+          </div>
+        </div>
+        <button class="iconbtn" data-action="bell" aria-label="Уведомления">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9a6 6 0 1 1 12 0c0 3.5 1.5 5 2 6H4c.5-1 2-2.5 2-6"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
+          ${unread ? '<span class="dot"></span>' : ''}
+        </button>
+      </div>
+      <div class="people-switch">
+        ${people.map(p => `<button class="chip ${p.id===active.id?'active':''}" data-action="switch" data-id="${p.id}">${p.fullName.split(' ')[0]} · ${ROLE[p.role]}</button>`).join('')}
+      </div>
+    </header>`;
+}
+
+function chart(values) {
+  const max = Math.max(...values, 1);
+  return `<div class="chart">${values.map((v,i) => `<div class="bar" style="height:${Math.max(8,(v/max)*100)}%;animation-delay:${.05*i}s"></div>`).join('')}</div>`;
+}
+
+function leadList(title, leads) {
+  if (!leads.length) return `<div class="card"><div class="card-title">${title}</div><p class="muted">Пока пусто</p></div>`;
+  return `<div class="card"><div class="card-title">${title}</div>${leads.map(l => {
+    const s = user(l.studentId); const c = course(l.courseId);
+    return `<div class="row"><div><div class="row-title">${s?s.fullName:'—'}</div><div class="row-sub">${c?c.title:'—'} · ${dateLabel(l.createdAt)}</div></div>${statusPill(l.status)}</div>`;
+  }).join('')}</div>`;
+}
+
+function featuresStrip() {
+  return `<div class="features">
+    <div class="feat"><div class="feat-icon">&lt;/&gt;</div><strong>Практика</strong><span>От теории к проектам</span></div>
+    <div class="feat"><div class="feat-icon">◎</div><strong>Поддержка</strong><span>Кураторы и комьюнити</span></div>
+    <div class="feat"><div class="feat-icon">↗</div><strong>Профессии</strong><span>Востребованные навыки</span></div>
+    <div class="feat"><div class="feat-icon">◆</div><strong>Миссия</strong><span>Твоё развитие</span></div>
+  </div>`;
+}
+
+function trafferHome(active) {
+  const myLeads = state.leads.filter(l => l.trafferId === active.id);
+  const paid = myLeads.filter(l => l.status === 'paid').length;
+  const rate = myLeads.length ? Math.round(100 * paid / myLeads.length) : 0;
+  return `
+    <div class="card">
+      <div class="card-title">Реферальная ссылка</div>
+      <div class="link-box">${refLink(active.refCode)}</div>
+      <div class="btn-row"><button class="btn ghost" data-action="copy-link">Скопировать</button></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Конверсия</div>
+      <div class="stats">
+        <div class="stat"><div class="stat-val">${paid}</div><div class="stat-label">оплачено</div></div>
+        <div class="stat"><div class="stat-val">${rate}%</div><div class="stat-label">конверсия</div></div>
+      </div>
+      ${chart([2,3,1,4,2,5,3])}
+    </div>
+    ${leadList('Мои лиды', myLeads)}
+    <div class="card">
+      <div class="card-title">Вывод</div>
+      <button class="btn block" data-action="request-payout" ${active.balance<=0?'disabled':''}>Запросить вывод</button>
+    </div>`;
+}
+
+function teacherHome(active) {
+  const myDeals = state.deals.filter(d => d.teacherId === active.id);
+  const students = [...new Set(myDeals.map(d => d.studentId))];
+  return `
+    <div class="card">
+      <div class="card-title">Ученики</div>
+      <div class="stats">
+        <div class="stat"><div class="stat-val">${students.length}</div><div class="stat-label">учеников</div></div>
+        <div class="stat"><div class="stat-val">${myDeals.length}</div><div class="stat-label">сделок</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Активные курсы</div>
+      ${myDeals.length ? myDeals.map(d => {
+        const s = user(d.studentId); const c = course(state.leads.find(l=>l.id===d.leadId)?.courseId);
+        return `<div class="row"><div><div class="row-title">${s?s.fullName:'—'}</div><div class="row-sub">${c?c.title:'Курс'} · ${shortMoney(d.teacherCut)}</div></div><span class="pill ok">активен</span></div>`;
+      }).join('') : '<p class="muted">Пока нет</p>'}
+    </div>
+    <div class="card">
+      <div class="card-title">Вывод</div>
+      <button class="btn block" data-action="request-payout" ${active.balance<=0?'disabled':''}>Запросить вывод</button>
+    </div>`;
+}
+
+function studentHome(active) {
+  const myLeads = state.leads.filter(l => l.studentId === active.id);
+  const open = myLeads.filter(l => ['waiting_payment','new','calling'].includes(l.status));
+  const paid = state.deals.filter(d => d.studentId === active.id);
+  return `
+    ${featuresStrip()}
+    <div class="card">
+      <div class="card-title">Мои курсы</div>
+      ${paid.length ? paid.map(d => {
+        const lead = state.leads.find(l => l.id === d.leadId);
+        const c = course(lead?.courseId);
+        return `<div class="row"><div><div class="row-title">${c?c.title:'Курс'}</div><div class="row-sub">${shortMoney(d.totalAmount)}</div></div><span class="pill ok">оплачен</span></div>`;
+      }).join('') : '<p class="muted">Оплаченных курсов нет</p>'}
+    </div>
+    <div class="card">
+      <div class="card-title">Направления</div>
+      ${state.courses.map(c => `
+        <div class="row">
+          <div><div class="row-title">${c.title}</div><div class="row-sub">${c.type==='group'?'Группа':'Индивидуально'} · ${c.durationDays} дн.</div></div>
+          <div style="text-align:right"><div class="row-title">${shortMoney(c.basePrice)}</div>
+          <button class="btn ghost" style="min-height:30px;padding:0 11px;font-size:11px;margin-top:6px" data-action="buy" data-course="${c.id}">Выбрать</button></div>
+        </div>`).join('')}
+    </div>
+    ${open.length ? `<div class="card"><div class="card-title">К оплате</div>${open.map(l => {
+      const c = course(l.courseId);
+      return `<div class="row"><div><div class="row-title">${c?c.title:'Курс'}</div><div class="row-sub">${statusPill(l.status)}</div></div>
+        ${l.status==='waiting_payment'?`<button class="btn" style="min-height:34px;padding:0 12px;font-size:12px" data-action="pay" data-lead="${l.id}">Оплатить</button>`:''}
+      </div>`;
+    }).join('')}</div>` : ''}`;
+}
+
+function systemPanel() {
+  const paid = state.leads.filter(l => l.status === 'paid').length;
+  const revenue = state.deals.reduce((s,d) => s + d.totalAmount, 0);
+  return `
+    ${featuresStrip()}
+    <div class="card">
+      <div class="card-title">Система</div>
+      <div class="stats">
+        <div class="stat"><div class="stat-val">${state.users.length}</div><div class="stat-label">пользователей</div></div>
+        <div class="stat"><div class="stat-val">${paid}</div><div class="stat-label">оплат</div></div>
+        <div class="stat"><div class="stat-val">${shortMoney(revenue)}</div><div class="stat-label">оборот</div></div>
+        <div class="stat"><div class="stat-val">${state.leads.length}</div><div class="stat-label">лидов</div></div>
+      </div>
+      ${chart([1,2,2,3,1,4,3,5])}
+    </div>`;
+}
+
+function dealPanel() {
+  const students = state.users.filter(u => u.role === 'student');
+  const teachers = state.users.filter(u => u.role === 'teacher');
+  const traffers = state.users.filter(u => u.role === 'traffer');
+  const preview = split(dealType, !dealNoTraffer, dealType === 'group');
+  return `
+    <div class="card">
+      <div class="card-title">Новая сделка</div>
+      <div class="type-row">
+        <button class="typebtn ${dealType==='individual'?'active':''}" data-action="deal-type" data-type="individual"><strong>Индивидуально</strong><span>90 000 ₽</span></button>
+        <button class="typebtn ${dealType==='group'?'active':''}" data-action="deal-type" data-type="group"><strong>Группа</strong><span>180 000 ₽</span></button>
+      </div>
+      <div class="field"><label>Ученик</label><select data-field="dealStudent">${students.map(u=>`<option value="${u.id}" ${u.id==+dealStudent?'selected':''}>${u.fullName}</option>`).join('')}</select></div>
+      <div class="field"><label>Преподаватель</label><select data-field="dealTeacher">${teachers.map(u=>`<option value="${u.id}" ${u.id==+dealTeacher?'selected':''}>${u.fullName}</option>`).join('')}</select></div>
+      <div class="field"><label>Трафер</label>
+        <select data-field="dealTraffer" ${dealNoTraffer?'disabled':''}>${traffers.map(u=>`<option value="${u.id}" ${u.id==+dealTraffer?'selected':''}>${u.fullName}</option>`).join('')}</select>
+      </div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:12px">
+        <input type="checkbox" data-action="toggle-traffer" ${dealNoTraffer?'checked':''}> Без трафера
+      </label>
+      <div class="stats" style="margin-bottom:12px">
+        <div class="stat"><div class="stat-val" style="font-size:15px">${shortMoney(preview.total)}</div><div class="stat-label">сумма</div></div>
+        <div class="stat"><div class="stat-val" style="font-size:15px">${shortMoney(preview.teacherCut)}</div><div class="stat-label">преподаватель</div></div>
+        <div class="stat"><div class="stat-val" style="font-size:15px">${shortMoney(preview.trafferCut)}</div><div class="stat-label">трафер</div></div>
+        <div class="stat"><div class="stat-val" style="font-size:15px">${shortMoney(preview.adminCut)}</div><div class="stat-label">админ</div></div>
+      </div>
+      <button class="btn block" data-action="create-deal">Подтвердить сделку</button>
+    </div>`;
+}
+
+function payoutsPanel() {
+  const withBal = state.users.filter(u => u.balance > 0 && u.role !== 'student');
+  return `
+    <div class="card">
+      <div class="card-title">К выплате</div>
+      ${withBal.length ? withBal.map(u => `
+        <div class="row">
+          <div><div class="row-title">${u.fullName}</div><div class="row-sub">${ROLE[u.role]} · ${shortMoney(u.balance)}</div></div>
+          <button class="btn" style="min-height:34px;padding:0 12px;font-size:12px" data-action="pick-payout" data-id="${u.id}">Выплатить</button>
+        </div>`).join('') : '<p class="muted">Некому выплачивать</p>'}
+    </div>
+    ${payoutPicked ? (() => {
+      const p = user(payoutPicked);
+      return `<div class="card">
+        <div class="card-title">Выплата · ${p.fullName}</div>
+        <div class="field"><label>Сумма</label><input type="number" data-field="payoutAmount" value="${payoutAmount||p.balance}" min="1" max="${p.balance}"></div>
+        <button class="btn block" data-action="do-payout">Подтвердить</button>
+      </div>`;
+    })() : ''}`;
+}
+
+function adminHome() {
+  const tabs = [['overview','Система'],['leads','Лиды'],['deal','Сделка'],['payouts','Выплаты']];
+  return `
+    <div class="tabs">${tabs.map(([id,label]) => `<button class="tab ${tab===id?'active':''}" data-action="tab" data-tab="${id}">${label}</button>`).join('')}</div>
+    ${tab==='overview'?systemPanel():tab==='leads'?leadList('Все лиды', state.leads):tab==='deal'?dealPanel():payoutsPanel()}`;
+}
+
+function render() {
+  const active = user(state.activeUserId) || state.users[0];
+  if (!active) return;
+  $('#app').innerHTML = `
+    ${header(active)}
+    <div class="hero">
+      <img class="hero-logo" src="${LOGO}" alt="" width="180" height="180">
+      <div class="hero-title">ECHO.Academy</div>
+      <div class="hero-tag">обучение, которое приносит результат</div>
+    </div>
+    <div class="identity">
+      <p class="name">${active.fullName}</p>
+      <p class="role-line">${ROLE[active.role]}${active.username ? ' · @'+active.username : ''}</p>
+    </div>
+    <div class="balance-wrap">
+      <div class="balance">${money(active.balance)}</div>
+      <div class="balance-label">к выплате</div>
+    </div>
+    <div class="stack">
+      ${active.role==='traffer'?trafferHome(active):active.role==='teacher'?teacherHome(active):active.role==='student'?studentHome(active):adminHome()}
+    </div>
+    <footer class="footer">
+      <span class="footer-brand">ECHO.Academy</span>
+      <button class="btn ghost" data-action="reset" style="min-height:32px;padding:0 12px;font-size:11px">Сбросить</button>
+    </footer>`;
+  renderNotices(active);
+}
+
+function renderNotices(active) {
+  let panel = $('#notices');
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.id = 'notices';
+    document.body.appendChild(panel);
+  }
+  const mine = state.notices.filter(n => n.userId === active.id);
+  panel.className = 'notices' + (bell ? ' open' : '');
+  panel.innerHTML = `
+    <div class="notices-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <strong style="font-family:var(--display);font-size:20px;letter-spacing:.02em">Уведомления</strong>
+        <button class="btn ghost" style="min-height:30px;padding:0 12px;font-size:11px" data-action="close-bell">Закрыть</button>
+      </div>
+      ${mine.length ? mine.map(n => `
+        <div class="notice-item ${n.read?'':'unread'}">
+          <div class="row-title">${n.title}</div>
+          <div class="row-sub">${n.body} · ${dateLabel(n.createdAt)}</div>
+        </div>`).join('') : '<p class="muted">Пусто</p>'}
+    </div>`;
+  if (bell) { mine.forEach(n => n.read = true); save(); }
+}
+
+function addNotice(userId, title, body) {
+  state.notices.unshift({id: state.nextNoticeId++, userId, title, body, read:false, createdAt: new Date().toISOString()});
+}
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-action]');
+  if (!btn) {
+    if (e.target.id === 'notices') { bell = false; render(); }
+    return;
+  }
+  const a = btn.dataset.action;
+  let message = '';
+  const active = user(state.activeUserId);
+
+  if (a === 'switch') { state.activeUserId = +btn.dataset.id; bell = false; tab = 'overview'; }
+  else if (a === 'bell') { bell = !bell; }
+  else if (a === 'close-bell') { bell = false; }
+  else if (a === 'tab') { tab = btn.dataset.tab; }
+  else if (a === 'copy-link') {
+    navigator.clipboard?.writeText(refLink(active.refCode));
+    message = 'Ссылка скопирована';
+  }
+  else if (a === 'request-payout') {
+    addNotice(IDS.admin, 'Запрос на вывод', `${active.fullName} · ${shortMoney(active.balance)}`);
+    message = 'Запрос отправлен админу';
+  }
+  else if (a === 'buy') {
+    const c = course(btn.dataset.course);
+    const existing = state.leads.find(l => l.studentId === active.id && ['new','calling','waiting_payment'].includes(l.status));
+    if (existing) message = 'Уже есть открытый счёт';
+    else {
+      state.leads.push({id: state.nextLeadId++, studentId: active.id, trafferId: null, courseId: c.id, status: 'waiting_payment', createdAt: new Date().toISOString()});
+      message = `Счёт: ${c.title}`;
+    }
+  }
+  else if (a === 'pay') {
+    const lead = state.leads.find(l => l.id === +btn.dataset.lead);
+    if (!lead || lead.status !== 'waiting_payment') return;
+    const c = course(lead.courseId);
+    const s = split(c.type, !!lead.trafferId, c.type === 'group');
+    lead.status = 'paid';
+    state.deals.push({
+      id: state.nextDealId++, leadId: lead.id, studentId: lead.studentId, trafferId: lead.trafferId, teacherId: IDS.teacher,
+      groupId: c.type==='group' ? `G-${state.nextDealId}` : null,
+      totalAmount: s.total, trafferCut: s.trafferCut, teacherCut: s.teacherCut, adminCut: s.adminCut,
+      paymentStatus: 'success', payoutStatus: 'unpaid', createdAt: new Date().toISOString()
+    });
+    const teacher = user(IDS.teacher); if (teacher) teacher.balance = Math.round(teacher.balance + s.teacherCut);
+    if (lead.trafferId) { const t = user(lead.trafferId); if (t) t.balance = Math.round(t.balance + s.trafferCut); }
+    const admin = user(IDS.admin); if (admin) admin.balance = Math.round(admin.balance + s.adminCut);
+    addNotice(lead.studentId, 'Оплата прошла', c.title);
+    if (lead.trafferId) addNotice(lead.trafferId, 'Лид оплачен', `${user(lead.studentId)?.fullName} · ${shortMoney(s.trafferCut)}`);
+    addNotice(IDS.teacher, 'Новый ученик', `${user(lead.studentId)?.fullName} · ${c.title}`);
+    message = 'Оплачено';
+  }
+  else if (a === 'deal-type') { dealType = btn.dataset.type; }
+  else if (a === 'toggle-traffer') { dealNoTraffer = btn.checked; }
+  else if (a === 'create-deal') {
+    const student = user(dealStudent);
+    const teacher = user(dealTeacher);
+    const traffer = dealNoTraffer ? null : user(dealTraffer);
+    if (!student || !teacher) message = 'Выберите участников';
+    else {
+      const c = state.courses.find(x => x.type === dealType) || state.courses[0];
+      const s = split(dealType, !!traffer, dealType === 'group');
+      let lead = state.leads.find(l => l.studentId === student.id && ['new','calling','waiting_payment'].includes(l.status));
+      if (!lead) {
+        lead = {id: state.nextLeadId++, studentId: student.id, trafferId: traffer?.id || null, courseId: c.id, status: 'waiting_payment', createdAt: new Date().toISOString()};
+        state.leads.push(lead);
+      }
+      lead.status = 'paid';
+      lead.trafferId = traffer?.id || null;
+      const deal = {
+        id: state.nextDealId++, leadId: lead.id, studentId: student.id, trafferId: traffer?.id || null, teacherId: teacher.id,
+        groupId: dealType==='group' ? `G-${state.nextDealId}` : null,
+        totalAmount: s.total, trafferCut: s.trafferCut, teacherCut: s.teacherCut, adminCut: s.adminCut,
+        paymentStatus: 'success', payoutStatus: 'unpaid', createdAt: new Date().toISOString()
+      };
+      state.deals.push(deal);
+      teacher.balance = Math.round(teacher.balance + s.teacherCut);
+      if (traffer) traffer.balance = Math.round(traffer.balance + s.trafferCut);
+      const admin = user(IDS.admin); if (admin) admin.balance = Math.round(admin.balance + s.adminCut);
+      addNotice(student.id, 'Сделка создана', c.title);
+      addNotice(teacher.id, 'Новый ученик', student.fullName);
+      if (traffer) addNotice(traffer.id, 'Сделка', `${student.fullName} · ${shortMoney(s.trafferCut)}`);
+      message = `Сделка #${deal.id}`;
+      tab = 'leads';
+    }
+  }
+  else if (a === 'pick-payout') { payoutPicked = +btn.dataset.id; payoutAmount = ''; }
+  else if (a === 'do-payout') {
+    const person = user(payoutPicked);
+    const amount = Math.min(+payoutAmount || person.balance, person.balance);
+    if (!person || amount <= 0) message = 'Некорректная сумма';
+    else {
+      person.balance = Math.round(person.balance - amount);
+      if (person.balance <= 0) {
+        person.balance = 0;
+        state.deals.filter(d => d.payoutStatus === 'unpaid' && (d.trafferId === person.id || d.teacherId === person.id))
+          .forEach(d => d.payoutStatus = 'paid');
+      }
+      addNotice(person.id, 'Выплата', shortMoney(amount));
+      message = `Выплачено ${shortMoney(amount)}`;
+      payoutPicked = null;
+    }
+  }
+  else if (a === 'reset') {
+    state = seed();
+    tab = 'overview'; bell = false; dealType = 'individual'; dealNoTraffer = false;
+    dealStudent = '900000004'; dealTeacher = '900000003'; dealTraffer = '900000002';
+    payoutPicked = null; payoutAmount = '';
+    message = 'Витрина сброшена';
+  }
+  save();
+  render();
+  if (message) notify(message);
+});
+
+document.addEventListener('change', e => {
+  const el = e.target;
+  if (el.dataset.field === 'dealStudent') dealStudent = el.value;
+  if (el.dataset.field === 'dealTeacher') dealTeacher = el.value;
+  if (el.dataset.field === 'dealTraffer') dealTraffer = el.value;
+  if (el.dataset.field === 'payoutAmount') payoutAmount = el.value;
+  if (el.dataset.action === 'toggle-traffer') { dealNoTraffer = el.checked; render(); }
+});
+
+setTimeout(() => document.querySelector('.splash')?.classList.add('hide'), 1800);
+render();
+
+</script>
+</body>
+</html>
