@@ -78,18 +78,18 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:1px solid 
   /* no glow */
 }
 /* positions match original composition (meta %) */
-.part-hat{left:25.12%;top:26.72%;width:55.1%;height:39.16%}
-.part-crystal-tr{left:65.23%;top:13.56%;width:24.64%;height:17.86%}
-.part-crystal-bl{left:2.87%;top:48.49%;width:21.77%;height:15.87%}
-.part-sphere-l{left:16.35%;top:62.68%;width:18.42%;height:14.75%}
-.part-sphere-r{left:81.74%;top:40.11%;width:14.43%;height:10.93%}
+.part-hat{left:12.44%;top:26.4%;width:85.09%;height:49.04%;z-index:6}
+.part-crystal-tr{z-index:4;left:65.23%;top:13.56%;width:24.64%;height:17.86%}
+.part-crystal-bl{z-index:4;left:2.87%;top:48.49%;width:21.77%;height:15.87%}
+.part-sphere-l{z-index:3;left:16.35%;top:62.68%;width:18.42%;height:14.75%}
+.part-sphere-r{z-index:3;left:81.74%;top:40.11%;width:14.43%;height:10.93%}
 
 /* fly-ins with 3D volume */
 .part-crystal-tr{animation:inCTR 1.2s cubic-bezier(.22,1,.36,1) .12s forwards}
 .part-crystal-bl{animation:inCBL 1.2s cubic-bezier(.22,1,.36,1) .22s forwards}
 .part-sphere-l{animation:inSL 1.25s cubic-bezier(.22,1,.36,1) .35s forwards}
 .part-sphere-r{animation:inSR 1.25s cubic-bezier(.22,1,.36,1) .42s forwards}
-.part-hat{animation:inHat 1.35s cubic-bezier(.22,1,.36,1) .95s forwards}
+.part-hat{animation:inHat 1.3s cubic-bezier(.22,1,.36,1) .4s forwards}
 
 @keyframes inCTR{
   0%{opacity:0;transform:translate3d(120%,-90%,-280px) rotateY(55deg) rotateZ(25deg) scale(.4)}
@@ -107,14 +107,9 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:1px solid 
   0%{opacity:0;transform:translate3d(150%,-40%,-300px) scale(.25)}
   100%{opacity:1;transform:translate3d(0,0,52px) scale(1)}
 }
-  100%{opacity:1;transform:rotateX(8deg) rotateZ(0deg) scale(1) translateZ(12px)}
-}
-  100%{opacity:1;transform:translate3d(0,0,36px) rotateZ(0) scale(1)}
-}
 @keyframes inHat{
-  0%{opacity:0;transform:translate3d(0,30%,-220px) rotateX(28deg) rotateY(-20deg) scale(.45)}
-  70%{opacity:1}
-  100%{opacity:1;transform:translate3d(0,0,24px) rotateX(0) rotateY(0) scale(1)}
+  0%{opacity:0;transform:translate3d(0,70%,-240px) scale(.35)}
+  100%{opacity:1;transform:translate3d(0,0,28px) scale(1)}
 }
 
 .splash-copy{
@@ -308,11 +303,11 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:1px solid 
 
 <div class="splash" id="splash" aria-hidden="true">
   <div class="splash-stage">
-    <div class="part part-hat"><img src="assets/parts/hat.png" alt=""></div>
-    <div class="part part-sphere-l"><img src="assets/parts/sphere_l.png" alt=""></div>
-    <div class="part part-sphere-r"><img src="assets/parts/sphere_r.png" alt=""></div>
-    <div class="part part-crystal-tr"><img src="assets/parts/crystal_tr.png" alt=""></div>
-    <div class="part part-crystal-bl"><img src="assets/parts/crystal_bl.png" alt=""></div>
+    <div class="part part-sphere-l"><img src="./assets/parts/sphere_l.png" alt=""></div>
+    <div class="part part-sphere-r"><img src="./assets/parts/sphere_r.png" alt=""></div>
+    <div class="part part-crystal-tr"><img src="./assets/parts/crystal_tr.png" alt=""></div>
+    <div class="part part-crystal-bl"><img src="./assets/parts/crystal_bl.png" alt=""></div>
+    <div class="part part-hat"><img src="./assets/parts/hat.png" alt=""></div>
   </div>
   <div class="splash-copy">
     <div class="splash-brand chrome-text">ECHO.Academy</div>
